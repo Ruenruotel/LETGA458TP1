@@ -1,0 +1,9 @@
+Voici comment récupérer ma base de données.
+
+1. Connectez-vous à votre phpMyAdmin
+2. Créez une nouvelle base de données nommée "bd_letga458tp1"
+3. Allez dans l'onglet Importer
+4. CHoisissez le fichier bd_letga458tp1.sql présent à la racine du présent site
+5. CLiquez sur Exécuter
+
+Les tables devraient alors s'afficher.
