@@ -1,4 +1,4 @@
-<?php
+<?php 
 /**
  * Application level Controller
  *
@@ -55,7 +55,7 @@ class AppController extends Controller {
                     'passwordHasher' => 'Blowfish'
                 )
             ),
-            'authorize' => array('Controller') // Added this line
+            'authorize' => array('Controller')
         )
     );
 
