@@ -117,7 +117,7 @@ class DonationsController extends AppController {
         $this->Session->setFlash(__('Donation was not deleted'), 'flash/error');
         $this->redirect(array('action' => 'index'));
     }
-    
+
     public function isAuthorized($user) {
         // The owner of a post can edit and delete it
         if (in_array($this->action, array('edit', 'delete'))) {
@@ -129,7 +129,9 @@ class DonationsController extends AppController {
             }
         }
         if (in_array($this->action, array('add'))) {
-            return true;
+            if ($this->Session->read('Auth.User.active') == 1) {
+                return true;
+            }
         }
         return parent::isAuthorized($user);
     }

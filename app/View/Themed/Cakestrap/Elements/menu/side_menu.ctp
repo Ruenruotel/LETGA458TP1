@@ -14,7 +14,7 @@
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><?= __('Missionaries') ?> <span class="caret"></span></button>
                 <ul class="dropdown-menu scrollable-menu" role="menu">
                     <li class="list-group-item"><?php echo $this->Html->link(__('List'), array('controller' => 'missionaries', 'action' => 'index'), array('class' => '')); ?></li> 
-                    <?php if ($this->Session->check('Auth.User')) { ?>
+                    <?php if ($this->Session->check('Auth.User') && $this->Session->read('Auth.User.active') == 1) { ?>
                     <li class="list-group-item"><?php echo $this->Html->link(__('New'), array('controller' => 'missionaries', 'action' => 'add'), array('class' => '')); ?></li> 
                     <?php } ?>
                 </ul>
@@ -23,7 +23,7 @@
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><?= __('Donations') ?> <span class="caret"></span></button>
                 <ul class="dropdown-menu scrollable-menu" role="menu">
                     <li class="list-group-item"><?php echo $this->Html->link(__('List'), array('controller' => 'donations', 'action' => 'index'), array('class' => '')); ?></li> 
-                    <?php if ($this->Session->check('Auth.User')) { ?>
+                    <?php if ($this->Session->check('Auth.User') && $this->Session->read('Auth.User.active') == 1) { ?>
                     <li class="list-group-item"><?php echo $this->Html->link(__('New'), array('controller' => 'donations', 'action' => 'add'), array('class' => '')); ?></li> 
                     <?php } ?>
                 </ul>

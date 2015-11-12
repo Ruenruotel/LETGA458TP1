@@ -43,7 +43,24 @@
                                 <?php echo h($missionary['Missionary']['modified']); ?>
                                 &nbsp;
                             </td>
-                        </tr><tr>		<td><strong><?php echo __('User'); ?></strong></td>
+                        </tr><tr>		<td><strong><?php echo __('Religion'); ?></strong></td>
+                            <td>
+                                <?php echo h($religion['Religion']['name']); ?>
+                                &nbsp;
+                            </td>
+                        </tr><tr>		<td><strong><?php echo __('Subreligion'); ?></strong></td>
+                            <td>
+                                <?php echo h($missionary['Subreligion']['name']); ?>
+                                &nbsp;
+                            </td>
+                        </tr><tr>		<td><strong><?php echo __('Country'); ?></strong></td>
+                            <td>
+                                <?php echo h($missionary['Country']['name']); ?>
+                                &nbsp;
+                            </td>
+                        </tr>
+
+                        <tr>		<td><strong><?php echo __('User'); ?></strong></td>
                             <td>
                                 <?php echo $this->Html->link($missionary['User']['username'], array('controller' => 'users', 'action' => 'view', $missionary['User']['id']), array('class' => 'label label-info')); ?>
                                 &nbsp;
@@ -54,8 +71,16 @@
 
         </div><!-- /.view -->
 
+        <?php
+        if (isset($missionary['Missionary']['profile_picture'])) {
+            echo '<p>' . __('Profile picture : ');
+            echo $this->Html->image($missionary['Missionary']['profile_picture'], array('escape' => false));
+            echo '</p>';
+        }
+        ?>
+
         <p><?php
-            if ($this->Session->check('Auth.User')) {
+            if ($this->Session->check('Auth.User') && $this->Session->read('Auth.User.active') == 1) {
                 echo " " . $this->Html->link('<i class="icon-plus icon-white"></i> ' . __('New missionary'), array('controller' => 'missionaries', 'action' => 'add'), array('class' => 'btn btn-primary', 'escape' => false));
             }
             echo " " . $this->Html->link('<i class="icon-plus icon-white"></i> ' . __('Back to list'), array('action' => 'index'), array('class' => 'btn btn-primary', 'escape' => false));
@@ -106,7 +131,7 @@
                     echo $this->Html->link('<i class="icon-plus icon-white"></i> ' . __('New church'), array('controller' => 'churches', 'action' => 'add'), array('class' => 'btn btn-primary', 'escape' => false));
                 }
                 ?>				</div><!-- /.actions -->
-                
+
         </div><!-- /.related -->
 
 

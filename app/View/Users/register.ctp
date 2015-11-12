@@ -17,6 +17,9 @@
                     <?php echo $this->Form->input('username', array('class' => 'form-control', 'label' => __('Username'))); ?>
                 </div><!-- .form-group -->
                 <div class="form-group">
+                    <?php echo $this->Form->input('email', array('class' => 'form-control', 'label' => __('Email'))); ?>
+                </div><!-- .form-group -->
+                <div class="form-group">
                     <?php echo $this->Form->input('password', array('class' => 'form-control', 'label' => __('Password'))); ?>
                 </div><!-- .form-group -->
                 <div class="form-group">

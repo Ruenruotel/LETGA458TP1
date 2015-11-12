@@ -15,61 +15,72 @@
  * @since         CakePHP(tm) v 0.10.0.1076
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-
 $cakeDescription = __d('cake_dev', __('MuffinChurches'));
 ?>
 <?php echo $this->Html->docType('html5'); ?> 
 <html>
-	<head>
-		<?php echo $this->Html->charset(); ?>
-		<title>
-			<?php echo $cakeDescription ?>:
-			<?php echo $title_for_layout; ?>
-		</title>
-		<?php
-			echo $this->Html->meta('icon');
-			
-			echo $this->fetch('meta');
+    <head>
+        <?php echo $this->Html->charset(); ?>
+        <title>
+            <?php echo $cakeDescription ?>:
+            <?php echo $title_for_layout; ?>
+        </title>
+        <?php
+        echo $this->Html->meta('icon');
 
-			echo $this->Html->css('bootstrap');
-			echo $this->Html->css('main');
+        echo $this->fetch('meta');
+        echo $this->Html->css('bootstrap');
+        echo $this->Html->css('main');
+        echo $this->Html->css('https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css');
 
-			echo $this->fetch('css');
-			
-			echo $this->Html->script('libs/jquery-1.10.2.min');
-			echo $this->Html->script('libs/bootstrap.min');
-			
-			echo $this->fetch('script');
-		?>
-	</head>
+        echo $this->fetch('css');
+        
+        echo $this->Html->script('libs/jquery-1.10.2.min');
+        echo $this->Html->script('libs/bootstrap.min');
 
-	<body>
+        echo $this->fetch('script');
+        ?>
+    </head>
 
-		<div id="main-container">
-		
-			<div id="header" class="container">
-				<?php echo $this->element('menu/top_menu'); ?>
-			</div><!-- /#header .container -->
-			
-			<div id="content" class="container">
-				<?php echo $this->Session->flash(); ?>
-				<?php echo $this->fetch('content'); ?>
-			</div><!-- /#content .container -->
-			
-			<div id="footer" class="container">
-				<?php //Silence is golden ?>
-			</div><!-- /#footer .container -->
-			
-		</div><!-- /#main-container -->
-		
-		<div class="container">
-			<div class="well well-sm">
-				<small>
-					<?php echo $this->element('sql_dump'); ?>
-				</small>
-			</div><!-- /.well well-sm -->
-		</div><!-- /.container -->
-		
-	</body>
+    <body>
+
+        <div id="main-container">
+
+            <div id="header" class="container">
+                <?php echo $this->element('menu/top_menu'); ?>
+            </div><!-- /#header .container -->
+
+            <div id="content" class="container">
+                <?php echo $this->Session->flash(); ?>
+                <?php echo $this->fetch('content'); ?>
+            </div><!-- /#content .container -->
+
+            <div id="footer" class="container">
+                <?php //Silence is golden  ?>
+            </div><!-- /#footer .container -->
+
+        </div><!-- /#main-container -->
+
+        <div class="container">
+            <div class="well well-sm">
+                <small>
+                    <?php echo $this->element('sql_dump'); ?>
+                </small>
+            </div><!-- /.well well-sm -->
+        </div><!-- /.container -->
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+        <!-- scripts_for_layout -->
+        <?php echo $scripts_for_layout; ?>
+        <!-- Js writeBuffer -->
+        <?php
+        if (class_exists('JsHelper') && method_exists($this->Js, 'writeBuffer')) {
+            echo $this->Js->writeBuffer();
+        }
+            
+// Writes cached scripts
+        ?>
+
+    </body>
 
 </html>

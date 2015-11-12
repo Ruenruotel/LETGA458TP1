@@ -22,6 +22,11 @@
                                 <?php echo h($user['User']['username']); ?>
                                 &nbsp;
                             </td>
+                        </tr><tr>		<td><strong><?php echo __('Email'); ?></strong></td>
+                            <td>
+                                <?php echo h($user['User']['email']); ?>
+                                &nbsp;
+                            </td>
                         </tr><tr>		<td><strong><?php echo __('Role'); ?></strong></td>
                             <td>
                                 <?php echo h($user['User']['role']); ?>
@@ -97,7 +102,8 @@
                 ?>				</div><!-- /.actions -->
 
         </div><!-- /.related -->
-
+        
+        <?php if ($this->Session->read('Auth.User.active') == 1) { ?>
 
         <div class="related">
 
@@ -149,6 +155,7 @@
 
         </div><!-- /.related -->
 
+        <?php } ?>
 
     </div><!-- /#page-content .span9 -->
 

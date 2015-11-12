@@ -60,6 +60,9 @@ class AppController extends Controller {
     );
 
     public function beforeFilter() {
+        if ($this->request->is('Ajax')) {
+            $this->layout = false;
+        }
         $this->Auth->allow('login', 'register', 'view');
     }
 

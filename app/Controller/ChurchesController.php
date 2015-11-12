@@ -20,7 +20,11 @@ class ChurchesController extends AppController {
     public function beforeFilter() {
         $this->Session->write('Auth.theRedirect', Router::url(null, true));
         parent::beforeFilter();
-        $this->Auth->allow('index');
+        $this->Auth->allow('index', 'about');
+    }
+    
+    public function about() {
+        
     }
 
     /**

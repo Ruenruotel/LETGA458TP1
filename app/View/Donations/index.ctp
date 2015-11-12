@@ -9,7 +9,7 @@
 
             <h2><?php
                 echo __('Donations');
-                if ($this->Session->check('Auth.User')) {
+                if ($this->Session->check('Auth.User') && $this->Session->read('Auth.User.active') == 1) {
                     echo " " . $this->Html->link('<i class="icon-plus icon-white"></i> ' . __('New'), array('action' => 'add'), array('class' => 'btn btn-primary', 'escape' => false));
                 }
                 ?></h2>
