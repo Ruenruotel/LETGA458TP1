@@ -68,7 +68,7 @@ class DATABASE_CONFIG {
 		'password' => '',
 		'database' => '',
 		'prefix' => '',
-		//'encoding' => 'utf8',
+		'encoding' => 'utf8',
 	);
 	public $test = array(
 		'datasource' => 'Database/Mysql',

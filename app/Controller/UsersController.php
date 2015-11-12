@@ -31,7 +31,7 @@ class UsersController extends AppController {
                         $u = $this->User->read(null, $this->User->getInsertId());
                         $this->send_mail($u['User']['email'], $u['User']['username'], $this->User->getInsertID(), $u['User']['password']);
                     }
-                    $this->Session->setFlash(__('You have successfully registered. You can now sign in.'), 'flash/success');
+                    $this->Session->setFlash(__('You have successfully registered. You can now sign in. Don\'t forget to activate your account.'), 'flash/success');
                     $this->redirect(array('action' => 'login'));
                 } else {
                     $this->Session->setFlash(__('An error occured and you couldn\'t get registered. Please, try again.'), 'flash/error');
