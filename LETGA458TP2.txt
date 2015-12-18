@@ -1,2 +1,0 @@
-Dépôt Git : https://github.com/Ruenruotel/LETGA458TP1
-Site hébergé : http://muffinphp-letga458tp1.rhcloud.com/

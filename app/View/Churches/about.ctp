@@ -4,6 +4,10 @@
 
     <div id="page-content" class="col-sm-9">
 
+        <?php
+        echo $this->Html->image("muffinchurches_logo.svg", array('escape' => false));
+        ?>
+
         <h2><?= __('About MuffinChurches') ?></h2><br>
         <p><?= __('Created by Gaël Letourneur,') ?></p>
         <p><?= __('In course "420-267 MO Développer un site Web et une application pour Internet",') ?></p>
@@ -22,7 +26,7 @@
         <br><br><p><?= __('This site has been partially inspired by this diagram : ') ?></p>
         <p><?= $this->Html->image('model.jpg', array('escape' => false)) ?></p>
         <p><?= __('Source : ') . $this->Html->link('http://www.databaseanswers.org/data_models/missionaries/index.htm,') ?></p>
-        
+
         <br><br><p><?= __('If you encounter any problems while manipulating this site, please send an email to gaelletourneur2@hotmail.com .') ?></p>
 
     </div><!-- /#page-content .span9 -->

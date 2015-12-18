@@ -166,30 +166,26 @@ class Missionary extends AppModel {
      * @return boolean
      */
     public function processImageUpload($check = array()) {
-        // deal with uploaded file
         if (!empty($check['profile_picture']['tmp_name'])) {
-
-            // check file is uploaded
-            if (!is_uploaded_file($check['profile_picture']['tmp_name'])) {
+            if (!$this->is_uploaded_file($check['profile_picture']['tmp_name'])) {
                 return FALSE;
             }
-
-            // build full filename
             $filename = WWW_ROOT . 'img' . DS . 'uploads' . DS . $check['profile_picture']['name'];
-
-            // @todo check for duplicate filename
-            // try moving file
-            if (!move_uploaded_file($check['profile_picture']['tmp_name'], $filename)) {
+            if (!$this->move_uploaded_file($check['profile_picture']['tmp_name'], $filename)) {
                 return FALSE;
-
-                // file successfully uploaded
             } else {
-                // save the file path relative from WWW_ROOT e.g. uploads/example_filename.jpg
                 $this->data[$this->alias]['profile_picture'] = 'uploads' . '/' . $check['profile_picture']['name'];
             }
         }
-
         return TRUE;
+    }
+
+    public function is_uploaded_file($tmp_name) {
+        return is_uploaded_file($tmp_name);
+    }
+
+    public function move_uploaded_file($from, $to) {
+        return move_uploaded_file($from, $to);
     }
 
 }

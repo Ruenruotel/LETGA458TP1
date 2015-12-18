@@ -35,12 +35,18 @@
                             </td>
                         </tr><tr>		<td><strong><?php echo __('Created'); ?></strong></td>
                             <td>
-			<?php echo h($donation['Donation']['created']); ?>
+			<?php 
+                                $created = $donation['Donation']['created'];
+                                echo is_numeric($created) ? date("Y-m-d H:i:s", $created) : h($created);
+                                ?>
                                 &nbsp;
                             </td>
                         </tr><tr>		<td><strong><?php echo __('Modified'); ?></strong></td>
                             <td>
-			<?php echo h($donation['Donation']['modified']); ?>
+			<?php 
+                                $modified = $donation['Donation']['modified'];
+                                echo is_numeric($modified) ? date("Y-m-d H:i:s", $modified) : h($modified);
+                                ?>
                                 &nbsp;
                             </td>
                         </tr>					</tbody>

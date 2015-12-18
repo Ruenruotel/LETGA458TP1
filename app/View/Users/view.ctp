@@ -34,12 +34,18 @@
                             </td>
                         </tr><tr>		<td><strong><?php echo __('Created'); ?></strong></td>
                             <td>
-                                <?php echo h($user['User']['created']); ?>
+                                <?php
+                                $created = $user['User']['created'];
+                                echo is_numeric($created) ? date("Y-m-d H:i:s", $created) : h($created);
+                                ?>
                                 &nbsp;
                             </td>
                         </tr><tr>		<td><strong><?php echo __('Modified'); ?></strong></td>
                             <td>
-                                <?php echo h($user['User']['modified']); ?>
+                                <?php
+                                $modified = $user['User']['modified'];
+                                echo is_numeric($modified) ? date("Y-m-d H:i:s", $modified) : h($modified);
+                                ?>
                                 &nbsp;
                             </td>
                         </tr>					</tbody>
@@ -102,58 +108,58 @@
                 ?>				</div><!-- /.actions -->
 
         </div><!-- /.related -->
-        
+
         <?php if ($this->Session->read('Auth.User.active') == 1) { ?>
 
-        <div class="related">
+            <div class="related">
 
-            <h3><?php echo __('Related Missionaries'); ?></h3>
+                <h3><?php echo __('Related Missionaries'); ?></h3>
 
-<?php if (!empty($user['Missionary'])): ?>
+                <?php if (!empty($user['Missionary'])): ?>
 
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th><?php echo __('Name'); ?></th>
-                                <th><?php echo __('Email'); ?></th>
-                                <th class="actions"><?php echo __('Actions'); ?></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $i = 0;
-                            foreach ($user['Missionary'] as $missionary):
-                                ?>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
+                            <thead>
                                 <tr>
-                                    <td><?php echo $missionary['name']; ?></td>
-                                    <td><?php echo $missionary['email']; ?></td>
-                                    <td class="actions">
-                                        <?php
-                                        echo $this->Html->link(__('View'), array('controller' => 'missionaries', 'action' => 'view', $missionary['id']), array('class' => 'label label-info'));
-                                        if ($this->Session->read('Auth.User.id') === $missionary['user_id'] || $this->Session->read('Auth.User.role') === 'admin') {
-                                            echo " " . $this->Html->link(__('Edit'), array('controller' => 'missionaries', 'controller' => 'missionaries', 'action' => 'edit', $missionary['id']), array('class' => 'label label-info'));
-                                            echo " " . $this->Form->postLink(__('Delete'), array('controller' => 'missionaries', 'controller' => 'missionaries', 'action' => 'delete', $missionary['id']), array('class' => 'label label-info'), __('Are you sure you want to delete "%s" ?', $missionary['name']));
-                                        }
-                                        ?>
-                                    </td>
+                                    <th><?php echo __('Name'); ?></th>
+                                    <th><?php echo __('Email'); ?></th>
+                                    <th class="actions"><?php echo __('Actions'); ?></th>
                                 </tr>
-    <?php endforeach; ?>
-                        </tbody>
-                    </table><!-- /.table table-striped table-bordered -->
-                </div><!-- /.table-responsive -->
+                            </thead>
+                            <tbody>
+                                <?php
+                                $i = 0;
+                                foreach ($user['Missionary'] as $missionary):
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $missionary['name']; ?></td>
+                                        <td><?php echo $missionary['email']; ?></td>
+                                        <td class="actions">
+                                            <?php
+                                            echo $this->Html->link(__('View'), array('controller' => 'missionaries', 'action' => 'view', $missionary['id']), array('class' => 'label label-info'));
+                                            if ($this->Session->read('Auth.User.id') === $missionary['user_id'] || $this->Session->read('Auth.User.role') === 'admin') {
+                                                echo " " . $this->Html->link(__('Edit'), array('controller' => 'missionaries', 'controller' => 'missionaries', 'action' => 'edit', $missionary['id']), array('class' => 'label label-info'));
+                                                echo " " . $this->Form->postLink(__('Delete'), array('controller' => 'missionaries', 'controller' => 'missionaries', 'action' => 'delete', $missionary['id']), array('class' => 'label label-info'), __('Are you sure you want to delete "%s" ?', $missionary['name']));
+                                            }
+                                            ?>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table><!-- /.table table-striped table-bordered -->
+                    </div><!-- /.table-responsive -->
 
-<?php endif; ?>
+                <?php endif; ?>
 
 
-            <div class="actions">
-                <?php
-                if ($this->Session->check('Auth.User')) {
-                    echo $this->Html->link('<i class="icon-plus icon-white"></i> ' . __('New Missionary'), array('controller' => 'missionaries', 'action' => 'add'), array('class' => 'btn btn-primary', 'escape' => false));
-                }
-                ?>				</div><!-- /.actions -->
+                <div class="actions">
+                    <?php
+                    if ($this->Session->check('Auth.User')) {
+                        echo $this->Html->link('<i class="icon-plus icon-white"></i> ' . __('New Missionary'), array('controller' => 'missionaries', 'action' => 'add'), array('class' => 'btn btn-primary', 'escape' => false));
+                    }
+                    ?>				</div><!-- /.actions -->
 
-        </div><!-- /.related -->
+            </div><!-- /.related -->
 
         <?php } ?>
 

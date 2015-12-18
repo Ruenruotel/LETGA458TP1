@@ -80,7 +80,7 @@ class UsersController extends AppController {
         $user = $this->User->find('first', array('conditions' => array('User.' . $this->User->primaryKey => $this->Auth->user('id'))))['User'];
         $this->send_mail($user['email'], $user['username'], $user['id'], $user['password']);
         $this->Session->setFlash(__('The link has been sent to your email. Please go click it.'), 'flash/success');
-        $this->redirect('/');
+        $this->redirect(array('controller' => 'pages', 'action' => 'index'));
     }
 
     public function activate($link) {
@@ -98,7 +98,7 @@ class UsersController extends AppController {
             $this->redirect(array('controller' => 'churches', 'action' => 'index'));
         } else {
             $this->Session->setFlash(__('Activation link not good or account already activated.'), 'flash/error');
-            $this->redirect('/');
+            $this->redirect(array('controller' => 'pages', 'action' => 'index'));
         }
     }
 

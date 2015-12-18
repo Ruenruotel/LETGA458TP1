@@ -48,11 +48,11 @@
                 ?>
             </li>
 
-            <li><?=
-                $this->Html->link(__("[About]"), array(
-                    'controller' => 'churches',
-                    'action' => 'about'))
-                ?></li>
+            <?php
+            echo $this->Html->link(
+                    $this->Html->image("muffinchurches_logo.svg", array('escape' => false, 'height' => '50px'))
+                    , array('controller' => 'churches', 'action' => 'about'), array('escapeTitle' => false, 'title' => 'About'));
+            ?>
 
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= __('Languages') ?> <b class="caret"></b></a>
@@ -60,7 +60,7 @@
                     <?php
                     echo $this->I18n->flagSwitcher(array(
                         'class' => 'languages',
-                        'id' => 'language-switcher'
+                        'id' => 'language-switcher '
                     ));
                     ?>
                 </ul>

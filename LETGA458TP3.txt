@@ -1,0 +1,2 @@
+Dépôt GitHub : https://github.com/Ruenruotel/LETGA458TP1
+Site OpenShift : http://muffinphp-letga458tp1.rhcloud.com/

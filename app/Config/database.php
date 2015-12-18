@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This is core configuration file.
  *
@@ -23,10 +24,10 @@
  * You can specify multiple configurations for production, development and testing.
  *
  * datasource => The name of a supported datasource; valid options are as follows:
- *		Database/Mysql 		- MySQL 4 & 5,
- *		Database/Sqlite		- SQLite (PHP5 only),
- *		Database/Postgres	- PostgreSQL 7 and higher,
- *		Database/Sqlserver	- Microsoft SQL Server 2005 and higher
+ * 		Database/Mysql 		- MySQL 4 & 5,
+ * 		Database/Sqlite		- SQLite (PHP5 only),
+ * 		Database/Postgres	- PostgreSQL 7 and higher,
+ * 		Database/Sqlserver	- Microsoft SQL Server 2005 and higher
  *
  * You can add custom database datasources (or override existing datasources) by adding the
  * appropriate file to app/Model/Datasource/Database. Datasources should be named 'MyDatasource.php',
@@ -59,41 +60,61 @@
  * For Postgres : http://www.postgresql.org/docs/9.2/static/sql-set.html
  * For Sql Server : http://msdn.microsoft.com/en-us/library/ms190356.aspx
  */
+//class DATABASE_CONFIG {
+//        public $default = array(
+//		'datasource' => 'Database/Mysql',
+//		'persistent' => false,
+//		'host' => '',
+//		'login' => '',
+//		'password' => '',
+//		'database' => '',
+//		'prefix' => '',
+//		'encoding' => 'utf8',
+//	);
+//	public $test = array(
+//		'datasource' => 'Database/Mysql',
+//		'persistent' => false,
+//		'host' => 'localhost',
+//		'login' => 'root',
+//		'password' => 'mysql',
+//		'database' => 'bd_letgae458tp1-testing',
+//		'prefix' => '',
+//		//'encoding' => 'utf8',
+//	);
+//        
+//	public function __construct() {
+//               if (getenv("OPENSHIFT_MYSQL_DB_HOST")):
+//	           $this->default['host']       = getenv("OPENSHIFT_MYSQL_DB_HOST");
+//	           $this->default['port']       = getenv("OPENSHIFT_MYSQL_DB_PORT");
+//	           $this->default['login']      = getenv("OPENSHIFT_MYSQL_DB_USERNAME");
+//	           $this->default['password']   = getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
+//	           $this->default['database']   = getenv("OPENSHIFT_APP_NAME");
+//	       else:
+//	           $this->default['host']       = "localhost";
+//	           $this->default['port']       = 3306;
+//	           $this->default['login']      = "root";
+//	           $this->default['password']   = "mysql";
+//	           $this->default['database']   = "bd_letgae458tp1";
+//	       endif;
+//	}
+//}
+
+define('DEFAULT_DB', APP . DS . 'sqlite' . DS . 'bruh.sqlite');
+define('TEST_DB', APP . DS . 'sqlite' . DS . 'test.sqlite');
+
 class DATABASE_CONFIG {
-        public $default = array(
-		'datasource' => 'Database/Mysql',
-		'persistent' => false,
-		'host' => '',
-		'login' => '',
-		'password' => '',
-		'database' => '',
-		'prefix' => '',
-		'encoding' => 'utf8',
-	);
-	public $test = array(
-		'datasource' => 'Database/Mysql',
-		'persistent' => false,
-		'host' => 'localhost',
-		'login' => 'user',
-		'password' => 'password',
-		'database' => 'test_database_name',
-		'prefix' => '',
-		//'encoding' => 'utf8',
-	);
-        
-	public function __construct() {
-               if (getenv("OPENSHIFT_MYSQL_DB_HOST")):
-	           $this->default['host']       = getenv("OPENSHIFT_MYSQL_DB_HOST");
-	           $this->default['port']       = getenv("OPENSHIFT_MYSQL_DB_PORT");
-	           $this->default['login']      = getenv("OPENSHIFT_MYSQL_DB_USERNAME");
-	           $this->default['password']   = getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
-	           $this->default['database']   = getenv("OPENSHIFT_APP_NAME");
-	       else:
-	           $this->default['host']       = "localhost";
-	           $this->default['port']       = 3306;
-	           $this->default['login']      = "root";
-	           $this->default['password']   = "mysql";
-	           $this->default['database']   = "bd_letgae458tp1";
-	       endif;
-	}
+
+    public $default = array(
+        'datasource' => 'Database/Sqlite',
+        'persistent' => false,
+        'database' => DEFAULT_DB,
+        'prefix' => '',
+    );
+    public $test = array(
+        'datasource' => 'Database/Sqlite',
+        'persistent' => false,
+        'database' => TEST_DB,
+        'prefix' => '',
+    );
+
 }

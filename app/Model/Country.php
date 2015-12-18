@@ -9,7 +9,8 @@ class Country extends AppModel {
             $countries = $this->find('all', array(
                 'conditions' => array(
                     'name LIKE' => trim($term) . '%'
-                )
+                ),
+                    'recursive' => -1
             ));
             return $countries;
         }

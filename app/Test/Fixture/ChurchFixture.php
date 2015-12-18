@@ -29,12 +29,20 @@ class ChurchFixture extends CakeTestFixture {
  */
 	public $records = array(
 		array(
-			'id' => 1,
-			'name' => 'Lorem ipsum dolor sit amet',
-			'details' => 'Lorem ipsum dolor sit amet',
-			'user_id' => 1,
-			'created' => '2015-09-25 20:03:13',
-			'modified' => '2015-09-25 20:03:13'
+			'id' => '1',
+			'name' => 'Admin church',
+			'details' => 'This is an admin church.',
+			'user_id' => '2',
+			'created' => '2015-09-25 21:01:50',
+			'modified' => '2015-10-08 01:59:50'
+		),
+		array(
+			'id' => '3',
+			'name' => 'Member church',
+			'details' => 'This is a member church.',
+			'user_id' => '1',
+			'created' => '2015-10-06 03:03:05',
+			'modified' => '2015-10-06 03:03:05'
 		),
 	);
 

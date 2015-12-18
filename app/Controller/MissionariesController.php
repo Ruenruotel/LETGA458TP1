@@ -86,7 +86,7 @@ class MissionariesController extends AppController {
             }
         }
         $religions = $this->Missionary->Subreligion->Religion->find('list');
-        $subreligions = $this->Missionary->Subreligion->find('list', array('conditions' => array('religion_id' => 3))); // Christianisme par défaut
+        $subreligions = $this->Missionary->Subreligion->find('list', array('conditions' => array('religion_id' => 1))); // Christianisme par défaut
         $users = $this->Missionary->User->find('list');
         $churches = $this->Missionary->Church->find('list');
         $this->set(compact('users', 'churches', 'religions', 'subreligions'));
